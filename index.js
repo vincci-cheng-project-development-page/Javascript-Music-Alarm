@@ -54,7 +54,7 @@ function myapp(data){
     
                  Artist: ${content[num].artistName}
     
-                 Duration: ${content[num].playbackSeconds} seconds`}
+                Duration (when you buy the Full Song): ${content[num].playbackSeconds} seconds`}
             else if (viewOrAdd.value == 'Add'){
                 playlistFiles.push(content[num].previewURL)
                 const li = document.createElement('li')
