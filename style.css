@@ -1,0 +1,106 @@
+html {
+    height: 100%;
+    width: 100%;
+    font-family: "Titillium Web", sans-serif;
+  }
+body {
+    background-image: url(./imagebackground1.jpeg);
+    background-size: cover;
+  }
+h1{
+  text-align: center;
+  font-weight: bold;
+}
+h2{
+  text-align: center
+}
+ul{
+  padding-left:70px;
+  font-size:20px
+}
+  button {
+    font-size: 12px;
+  }
+  
+  .row { /*These settings put everything on the same row on the same line and justifies the content*/
+    clear: both;
+    margin-bottom: 2%;
+    display: flex;
+    justify-content: center;
+  }
+
+  #available-tracks-section {
+    margin: 10px;
+    border: 1px solid #333;
+    background: rgba(255, 255, 255, 0.75);
+    padding: 15px 20px 18px 18px;
+    border-radius: 5px;
+    box-shadow: 2px 5px 5px #333;
+    width: 33%
+  }
+  #list { 
+    margin: 10px;
+    border: 1px solid #333;
+    background: rgba(255, 255, 255, 0.75);
+    padding: 15px 20px 18px 18px;
+    border-radius: 5px;
+    box-shadow: 2px 5px 5px #333;
+    width: 67%
+  }
+  #setAlarm {
+    width: 52%
+  }
+  .setAlarm {
+    margin: 10px;
+    border: 1px solid #333;
+    background: rgba(255, 255, 255, 0.75);
+    padding: 15px 10px 18px 10px;
+    border-radius: 5px;
+    box-shadow: 2px 5px 5px #333;
+    text-align: center
+  }
+
+  .timeRemaining {
+    margin: 10px;
+    border: 1px solid #333;
+    background: rgba(255, 255, 255, 0.75);
+    padding: 15px 20px 18px 18px;
+    border-radius: 5px;
+    box-shadow: 2px 5px 5px #333;
+  }
+  
+
+#track-details-section{
+    margin: 10px;
+    border: 1px solid #333;
+    background: rgba(255, 255, 255, 0.75);
+    padding: 15px 20px 18px 18px;
+    border-radius: 5px;
+    box-shadow: 2px 5px 5px #333;
+    width: 94%; 
+    text-align: center
+  }
+#music_list{
+  text-align: center;
+  
+}
+#counter {
+  color: black;
+  display: table;
+  padding: 10px;
+  text-align: center
+}
+
+
+#note {
+  vertical-align: bottom;
+  font-style: italic;
+}
+
+label {
+  font-style: italic;
+}
+
+footer{
+  text-align: center
+}

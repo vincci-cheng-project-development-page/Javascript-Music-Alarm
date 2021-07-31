@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Alarm Music Garage</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./index.js"></script>
+
+
+</head>
+
+<body>
+
+  <h1>Alarm Music Garage</h1>
+
+  <div id="music_list">
+    <audio controls autoplay></audio>
+  </div>
+
+  <div>
+    <section id=track-details-section>
+
+      <h2>Track Details</h2>
+      <p id="track-description"></p>
+    </section>
+  </div>
+  <div class="row">
+    <section id=available-tracks-section>
+      <h2>1. Explore Available Tracks</h2>
+      <ul id="available-tracks">
+      </ul>
+    </section>
+
+
+    <section id="list">
+      <h2>2) Review Playlist Items</h2>
+      <ul id="current-playlist">
+      </ul>
+      <div id=note>
+      <p>Note:
+        <li>You may not add items to the playlist while items are or have been played during this window session</li>
+        <li>You may remove only the first and last items in the playlist at any given moment. You can do so by clicking
+          on
+          the 'remove first' or 'remove last' button next the the listed title on the playlist.</li>
+      </p>
+      </div>
+  </div>
+
+  <div id=alarmDiv class = row>
+    <section class=setAlarm id=setAlarm>
+      <h2>3) Set Alarm</h2>
+      <form id="create-task-form" action="#" method="post">
+        <label for="new-task-description">Alarm time (Eg. July 28, 2021 21:30:00)</label>
+        <input type="text" id="new-task-description" name="new-task-description" placeholder="Jul 28, 2021 21:30:00">
+        <input type="submit" value="Set">
+      </form>
+    </section>
+  
+    <section class=counter>
+      <h1 id='counter'></h1>
+    </section>
+
+    <h1 id='displayTimeSet'></h1>
+
+
+  </div>
+
+</body>
+<footer>
+  <p>Source for Audio Files: Napster</p>
+  <p>Developed by Vincci Cheng 2021</p>
+  <p>Special thanks to the Academy Xi team for teaching me how to code!</p>
+
+
+</footer>
+
+</html>
