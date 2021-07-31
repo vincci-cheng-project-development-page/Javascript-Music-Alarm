@@ -45,7 +45,7 @@ function myapp(data){
     audioFiles = []
     
     function renderTrack(num, viewOrAdd){
-        viewOrAdd.addEventListener("click", function(){
+        viewOrAdd.addEventListener("change", function(){
             if (viewOrAdd.value == 'Details'){
                 trackDetails.innerText = 
                 `Title: ${content[num].name}
