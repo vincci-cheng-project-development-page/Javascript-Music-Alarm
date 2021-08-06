@@ -41,35 +41,36 @@ function myapp(data) {
     audioFiles = []
 
     function renderTrack(num) {
-        availableTracks.addEventListener("click", function (e) {
+        availableTracks.addEventListener("click", function () {
             if (e.target.nodeName == 'BUTTON') {
                 if (e.target.value == 'Details') {
                     trackDetails.innerText =
                         `Title: ${content[num].name}
     
                  Album: ${content[num].albumName} 
-               
+    
                  Artist: ${content[num].artistName}
     
                 Duration (when you buy the Full Song): ${content[num].playbackSeconds} seconds`
                 }
                 else if (e.target.value == 'Add') {
-                    timestamp = Date.now()
-                    playlistFiles.push(timestamp)
                     playlistFiles.push(content[num].previewURL)
                     const li = document.createElement('li')
                     playlistSong = document.createElement('span')
                     playlistSong.innerText = `${content[num].name} ............ `
-                    removeSong = document.createElement('BUTTON') //View selection
-                    removeSong.innerText = 'Remove Song'
+                    removeLast = document.createElement('BUTTON') //View selection
+                    removeLast.innerText = 'Remove Last Song'
+                    removeFirst = document.createElement('BUTTON')
+                    removeFirst.innerText = 'Remove First Song'
                     li.appendChild(playlistSong)
-                    li.appendChild(removeSong)
-                    removeSong.className = timestamp
+                    li.appendChild(removeFirst)
+                    li.appendChild(removeLast)
+                    removeFirst.className = 'delete1'
+                    removeLast.className = 'delete9'
                     currentPlaylist.appendChild(li)
                     li.class = reviewItems
                 }
                 else if (e.target.value == 'Preview') {
-                    console.log(e.target.value)
                     const music_player1 = document.querySelector("audio")
                     music_player1.src = content[num].previewURL
                 }
@@ -80,22 +81,19 @@ function myapp(data) {
 
 //////Remove From Playlist//////
 currentPlaylist.addEventListener('click', function (e) {
-    if (e.target.innerText === 'Remove Song') {
+    if (e.target.className === 'delete1') {
         const li = e.target.parentElement;
         currentPlaylist.removeChild(li);
-        for (i=0; i<playlistFiles.length; i++){
-            if (playlistFiles[i] == e.target.className){
-            playlistFiles.splice(i,2)}}}})
+        playlistFiles.shift()
+    }
+    else if (e.target.className === 'delete9') {
+        const li = e.target.parentElement;
+        currentPlaylist.removeChild(li);
+        playlistFiles.pop()
+    }
 
+})
 
-/* const playlistFiles = ["Banana", "Orange", "Apple", "Mango"];
-for (i=0; i<playlistFiles.length; i++){
-if (playlistFiles[i] == removeSong.className){
-playlistFiles.splice(i,2)}}
- */
-
-/* })
- */
 ////// Play Playlist //////
 function playPlaylist() {
     for (key of playlistFiles) {
@@ -177,7 +175,7 @@ alarmSetForm.addEventListener('submit', function (e) {
 
 
 })
-
+}
 //Can iterate if put event listener wihtin a function that allows iteration. Cannnot iterate on the event listener object themselves.
 
 
