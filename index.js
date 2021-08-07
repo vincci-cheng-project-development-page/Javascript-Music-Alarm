@@ -32,23 +32,24 @@ function myapp(data) {
         availableTracks.appendChild(detailsButton)
         availableTracks.appendChild(addButton)
         availableTracks.appendChild(previewButton)
-        renderTrack(i)
-    }
-}
+        renderTrack(i)}
+    
     function renderTrack(num){
-        availableTracks.addEventListener("click", function (e) {
-        if (e.target.nodeName == 'BUTTON') {
-            if (e.target.value == 'Details') {
-                trackDetails.innerText =
-            `Title: ${content[num].name}
+        for (num of content) {
+        detailsButton.addEventListener("click", function(num){
+                    trackDetails.innerText = num.name}
+               /*  `Title: ${content[i].name}
+    
+                 Album: ${content[i].albumName} 
+               
+                 Artist: ${content[i].artistName}
+    
+                Duration (when you buy the Full Song): ${content[i].playbackSeconds} seconds` */
+    )}}}
+/*
+    function renderTrack(num){
 
-             Album: ${content[num].albumName} 
-           
-             Artist: ${content[num].artistName}
-
-            Duration (when you buy the Full Song): ${content[num].playbackSeconds} seconds`
-            }}})}
-            /* else if (e.target.value == 'Add') {
+            else if (e.target.value == 'Add') {
                 newAddition.renderAdd()
             }
             if (e.target.value == 'Preview') {
@@ -89,7 +90,7 @@ function myapp(data) {
         })
 
 
-// If the count down is over, write some text 
+If the count down is over, write some text 
 if (distance < 0) {
     clearInterval(x);
     document.getElementById("counter").innerHTML = "EXPIRED";
@@ -105,6 +106,5 @@ resetTimer.addEventListener('click', function () {
 })
 }
 
+*/
 
-
- */  
