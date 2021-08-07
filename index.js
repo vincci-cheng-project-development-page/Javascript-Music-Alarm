@@ -32,15 +32,23 @@ function myapp(data) {
         availableTracks.appendChild(detailsButton)
         availableTracks.appendChild(addButton)
         availableTracks.appendChild(previewButton)
-        //renderTrack(i)
+        renderTrack(i)
     }
 }
-    /* availableTracks.addEventListener("click", function (e) {
+    function renderTrack(num){
+        availableTracks.addEventListener("click", function (e) {
         if (e.target.nodeName == 'BUTTON') {
             if (e.target.value == 'Details') {
-                renderDetails()
-            }
-            else if (e.target.value == 'Add') {
+                trackDetails.innerText =
+            `Title: ${content[num].name}
+
+             Album: ${content[num].albumName} 
+           
+             Artist: ${content[num].artistName}
+
+            Duration (when you buy the Full Song): ${content[num].playbackSeconds} seconds`
+            }}})}
+            /* else if (e.target.value == 'Add') {
                 newAddition.renderAdd()
             }
             if (e.target.value == 'Preview') {
@@ -49,8 +57,9 @@ function myapp(data) {
                 music_player1.src = content[num].previewURL
             }
         }
-    },
+    })}
     
+    /* 
     currentPlaylist.addEventListener('click', function (e) {
         if (e.target.innerText === 'Remove Song') {
             renderTrack(num)
@@ -98,4 +107,4 @@ resetTimer.addEventListener('click', function () {
 
 
 
- */
+ */  
