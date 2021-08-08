@@ -1,5 +1,5 @@
 const playlistFiles = [];
-audioFiles = []
+const audioFiles = []
 
 class Addition {
     createTimestamp() {
@@ -17,10 +17,8 @@ class Addition {
         listedItem.class = 'reviewItems'
         return playlistFiles.push(removeSong.value, content[num].previewURL)
     }
+
     playPlaylist() {
-        playlistFiles.forEach(function(file){
-            if (typeof(file)!= 'number'){
-                audioFiles.push(file)}})
         var music_player = document.querySelector("audio");
         var fileIndex = 0;
         music_player.src = audioFiles[0];

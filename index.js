@@ -38,7 +38,7 @@ function myapp(data) {
 
     function renderTrack(num) {
         viewButton.addEventListener("click", function () {
-                trackDetails.innerText =
+            trackDetails.innerText =
                 `Title: ${content[num].name}
     
                  Album: ${content[num].albumName} 
@@ -46,20 +46,21 @@ function myapp(data) {
                  Artist: ${content[num].artistName}
     
                 Duration (when you buy the Full Song): ${content[num].playbackSeconds} seconds`
-            })
+        })
         addButton.addEventListener("click", function () {
             listedItem = document.createElement('li')
             playlistSong = document.createElement('span')
-            removeSong = document.createElement('BUTTON') 
-            newAddition.renderAdd(num)}) 
-        previewButton.addEventListener("click", function() {
+            removeSong = document.createElement('BUTTON')
+            newAddition.renderAdd(num)
+        })
+        previewButton.addEventListener("click", function () {
             const music_player1 = document.querySelector("audio")
             music_player1.src = content[num].previewURL
         })
     }
-    currentPlaylist.addEventListener("click", function(e){
-        if (e.target.nodeName == 'BUTTON'){
-            if (e.target.innerText == 'Remove Song'){
+    currentPlaylist.addEventListener("click", function (e) {
+        if (e.target.nodeName == 'BUTTON') {
+            if (e.target.innerText == 'Remove Song') {
                 const removeNow = e.target.parentElement;
                 currentPlaylist.removeChild(removeNow);
                 playlistFiles.forEach(function (num) {
@@ -67,9 +68,9 @@ function myapp(data) {
                         playlistFiles.splice(num, 2)
                     }
                 })
-}}})}
-
-    /*
+            }
+        }
+    })
 
     alarmSetForm = document.getElementById('create-task-form')
     alarmDiv = document.getElementById('alarmDiv')
@@ -88,27 +89,47 @@ function myapp(data) {
         countdownTextbox.innerText = alarmInput.value
         displayTimeSet.innerText = `The alarm will sound at ${alarmInput.value}, in...`
 
+        const countDownDate = new Date(alarmInput.value).getTime();
 
+        // Update the count down every 1 second
+        var x = setInterval(function () {
 
-    }
+            // Get today's date and time
+            const now = new Date().getTime();
+
+            // Find the distance between now and the count down date
+            var distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Output the result in an element with id="demo"
+            document.getElementById("counter").innerHTML = days + "d " + hours + "h "
+                + minutes + "m " + seconds + "s ";
+
+            // If the count down is over, write some text 
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("counter").innerHTML = "EXPIRED";
+                for (i=0; i<playlistFiles.length; i++){
+                    if (i%2!==0){audioFiles.push(playlistFiles[i])}
+                }
+                    }
+                
+                newAddition.playPlaylist()
+            
+        }, 1000);
+        resetTimer.addEventListener('click', function () {
+            clearInterval(x)
+            document.getElementById("counter").innerHTML = "  ";
+            displayTimeSet.innerText = `   `
+            audioFiles = []
         })
 
 
-If the count down is over, write some text
-if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("counter").innerHTML = "EXPIRED";
-    //console.log('hi')//This works!
-    newAddition.playPlaylist()
-}
-    }, 1000);
-resetTimer.addEventListener('click', function () {
-    clearInterval(x)
-    document.getElementById("counter").innerHTML = "  ";
-    displayTimeSet.innerText = `   `
-    audioFiles = []
-})
-}
 
-*/
-
+    })
+}
