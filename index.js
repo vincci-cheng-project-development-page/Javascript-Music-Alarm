@@ -11,15 +11,13 @@ function myapp(data) {
     content = data.tracks
     console.log(content)
     availableTracks = document.getElementById('available-tracks')
-    trackDetails = document.getElementById('track-description')
-    currentPlaylist = document.getElementById('current-playlist')
 
-
+    //////Iteration for Option Menu for Tracks//////
     for (i = 0; i < content.length; i++) {
         tracks = document.createElement('li')
-        detailsButton = document.createElement('BUTTON')
-        detailsButton.innerText = 'Details'
-        detailsButton.value = `Details`
+        viewButton = document.createElement('BUTTON')
+        viewButton.innerText = 'Details'
+        viewButton.value = `Details`
         addButton = document.createElement('BUTTON')
         addButton.innerText = 'Add'
         addButton.value = `Add`
@@ -29,44 +27,50 @@ function myapp(data) {
         tracks.className = i
         tracks.innerText = content[i].name
         availableTracks.appendChild(tracks)
-        availableTracks.appendChild(detailsButton)
+        availableTracks.appendChild(viewButton)
         availableTracks.appendChild(addButton)
         availableTracks.appendChild(previewButton)
-        renderTrack(i)}
-    
-    function renderTrack(num){
-        for (num of content) {
-        detailsButton.addEventListener("click", function(num){
-                    trackDetails.innerText = num.name}
-               /*  `Title: ${content[i].name}
-    
-                 Album: ${content[i].albumName} 
-               
-                 Artist: ${content[i].artistName}
-    
-                Duration (when you buy the Full Song): ${content[i].playbackSeconds} seconds` */
-    )}}}
-/*
-    function renderTrack(num){
+        renderTrack(i)
+    }
 
-            else if (e.target.value == 'Add') {
-                newAddition.renderAdd()
-            }
-            if (e.target.value == 'Preview') {
-                console.log(e.target.value)
-                const music_player1 = document.querySelector("audio")
-                music_player1.src = content[num].previewURL
-            }
-        }
-    })}
+    trackDetails = document.getElementById('track-description')
+    currentPlaylist = document.getElementById('current-playlist')
+
+    function renderTrack(num) {
+        viewButton.addEventListener("click", function () {
+                trackDetails.innerText =
+                `Title: ${content[num].name}
     
-    /* 
-    currentPlaylist.addEventListener('click', function (e) {
-        if (e.target.innerText === 'Remove Song') {
-            renderTrack(num)
-        }
-    })
+                 Album: ${content[num].albumName} 
     
+                 Artist: ${content[num].artistName}
+    
+                Duration (when you buy the Full Song): ${content[num].playbackSeconds} seconds`
+            })
+        addButton.addEventListener("click", function () {
+            listedItem = document.createElement('li')
+            playlistSong = document.createElement('span')
+            removeSong = document.createElement('BUTTON') 
+            newAddition.renderAdd(num)}) 
+        previewButton.addEventListener("click", function() {
+            const music_player1 = document.querySelector("audio")
+            music_player1.src = content[num].previewURL
+        })
+    }
+    currentPlaylist.addEventListener("click", function(e){
+        if (e.target.nodeName == 'BUTTON'){
+            if (e.target.innerText == 'Remove Song'){
+                const removeNow = e.target.parentElement;
+                currentPlaylist.removeChild(removeNow);
+                playlistFiles.forEach(function (num) {
+                    if (playlistFiles[num] === (e.target.valiue)) {
+                        playlistFiles.splice(num, 2)
+                    }
+                })
+}}})}
+
+    /*
+
     alarmSetForm = document.getElementById('create-task-form')
     alarmDiv = document.getElementById('alarmDiv')
     alarmInput = document.getElementById('new-task-description')
@@ -90,12 +94,12 @@ function myapp(data) {
         })
 
 
-If the count down is over, write some text 
+If the count down is over, write some text
 if (distance < 0) {
     clearInterval(x);
     document.getElementById("counter").innerHTML = "EXPIRED";
     //console.log('hi')//This works!
-    playPlaylist()
+    newAddition.playPlaylist()
 }
     }, 1000);
 resetTimer.addEventListener('click', function () {
